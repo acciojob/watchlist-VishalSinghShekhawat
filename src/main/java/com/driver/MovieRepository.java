@@ -44,8 +44,22 @@ public class MovieRepository {
             }
 
             directorMovieMapping.get(director).add(movie);
-            System.out.println(directorMovieMapping);
 
+
+        }else{
+            Movie m = new Movie(movie,0,0.0);
+            Director d = new Director(director,0,0.0);
+            movieMap.put(movie,m);
+            directorMap.put(director,d);
+
+            if(!directorMovieMapping.containsKey(director)){
+
+                List<String> movieList = new ArrayList<>();
+                movieList.add(movie);
+                directorMovieMapping.put(director,movieList);
+            }
+
+            directorMovieMapping.get(director).add(movie);
 
         }
     }
